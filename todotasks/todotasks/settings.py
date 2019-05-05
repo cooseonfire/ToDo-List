@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'todotasks',
     'todolist',
+    'accounts',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -76,8 +79,8 @@ WSGI_APPLICATION = 'todotasks.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'djongo',
+        'NAME': 'todolistDB',
     }
 }
 
@@ -119,3 +122,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_URL = '/auth/login/'
+LOGOUT_URL = '/auth/logout/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

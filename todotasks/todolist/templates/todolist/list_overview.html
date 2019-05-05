@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}{{ todolist.title }}{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% endblock %}
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+{% endblock %}
+
+
+{% block content %}
+    <div class="mb-2"></div>
+    <div class="row">
+        <div class="col mb-0 mr-2">
+            <h5 class="m-0 font-weight-bold text-primary">{{ todolist.title }}</h5>
+        </div>
+        <div class="col mb-2" align="end">
+            <a href="{% url 'todolist:edit_list' todolist.id %}">Edit</a>
+            | <a href="{% url 'todolist:delete_list' todolist.id %}">Delete</a>
+        </div>
+    </div>
+    <div class="mb-3"></div>
+    <div class="row">
+        <div class="col">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <div class="d-flex justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Doing</h6>
+                            <a href="{% url 'todolist:new_task' todolist.id %}">+</a>
+                    </div>
+                </div>
+                    <div class="card-body">
+                            <div class="card-columns">
+                                {% for todo in todolist.todos.all  %}
+                                {% if not todo.is_finished %}
+                                <div p-2 mr-auto>
+                                    <div class="
+                                        {% if todo.priority == 1 %}
+                                            card border-left-info shadow h-100 py-2
+                                        {% elif todo.priority == 2 %}
+                                            card border-left-primary shadow h-100 py-2
+                                        {% else %}
+                                            card border-left-success shadow h-100 py-2
+                                        {% endif %}
+                                        ">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="
+                                                    {% if todo.priority == 1 %}
+                                                        text-xs font-weight-bold text-info text-uppercase mb-1 ml-1
+                                                    {% elif todo.priority == 2 %}
+                                                        text-xs font-weight-bold text-primary text-uppercase mb-1 ml-1
+                                                    {% else %}
+                                                        text-xs font-weight-bold text-success text-uppercase mb-1 ml-1
+                                                    {% endif %}
+                                                    ">
+                                                    {{todo.name}}
+                                                </div>
+                                                <div class="ml-3 mb-2">
+                                                    <a href="#" data-toggle="popover" title="Description" data-content="{{todo.description}}">Description</a>
+                                                    {% if todo.deadline %}<p class="text-secondary">Deadline: {{todo.deadline|date:'d-m-Y'}}</p> {% endif %}
+                                                </div>
+                                                <p class="ml-1"><a href="{% url 'todolist:done_task' todolist.id todo.id %}">Done</a>
+                                                | <a href="{% url 'todolist:edit_task' todolist.id todo.id %}">Edit</a>
+                                                | <a href="{% url 'todolist:delete_task' todolist.id todo.id %}">Delete</a></p>
+                                            </div>
+                                        </div>
+                                        <script>
+                                        $(document).ready(function(){
+                                          $('[data-toggle="popover"]').popover();
+                                        });
+                                        </script>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% empty %}
+                                There's no tasks in list
+                                {% endfor %}
+                            </div>
+                    </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card shadow mb-4">
+                    <!-- Card Header - Accordion -->
+                    <div class="d-block card-header py-3">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                          <h6 class="m-0 font-weight-bold text-primary">Done</h6>
+                      </button>
+                    </div>
+                    <!-- Card Content - Collapse -->
+                    <div class="collapse" id="collapseOne" style="">
+                      <div class="card-body">
+                            <div class="card-columns">
+                                {% for todo in todolist.todos.all  %}
+                                {% if todo.is_finished %}
+                                <div class="card border-left-warning shadow h-100 py-2">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1 ml-1">
+                                                {{todo.name}}
+                                            </div>
+                                            <div class="ml-3">
+                                                <a href="#" data-toggle="popover" title="Description" data-content="{{todo.description}}">Description</a>
+                                                <p class="text-secondary">At {{todo.finished_date|date:'d-m-Y'}}</p>
+                                            </div>
+                                            <p class="ml-1"><a href="{% url 'todolist:delete_task' todolist.id todo.id %}">Delete</a></p>
+                                        </div>
+                                    </div>
+                                    <script>
+                                    $(document).ready(function(){
+                                      $('[data-toggle="popover"]').popover();
+                                    });
+                                    </script>
+                                </div>
+                            {% endif %}
+                            {% empty %}
+                            There's no tasks in list
+                            {% endfor %}
+                            </div>
+                      </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

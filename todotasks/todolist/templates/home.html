@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  <div class="m-4"></div>
+  <h2>Welcome, {{ user.username }}!</h2>
+  <div class="col-xl-8 col-lg-7">
+      <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Your lists</h6>
+            <p><a href="{% url 'todolist:new_list' %}">+</a></p>
+        </div>
+        <div class="card-body">
+          <ul>
+              {% for list in user.todolists.all %}
+              <li><a href="todo/overview/{{ list.id }}">{{ list.title }}</a></li>
+              {% empty %}
+                You haven't created any project yet. Let's get it!
+              {% endfor %}
+          </ul>
+        </div>
+      </div>
+  </div>
+  <p><a href="{% url 'accounts:logout' %}">Logout</a></p>
+{% else %}
+  <p>You are not logged in.</p>
+  <a href="{% url 'accounts:login' %}">Login</a>
+{% endif %}
+{% endblock %}
