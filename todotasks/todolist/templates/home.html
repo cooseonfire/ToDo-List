@@ -4,8 +4,9 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-  <div class="m-4"></div>
-  <h2>Welcome, {{ user.username }}!</h2>
+  <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+      <h3>Welcome, {{ user.username }}!</h3>
+  </nav>
   <div class="col-xl-8 col-lg-7">
       <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -23,9 +24,15 @@
         </div>
       </div>
   </div>
-  <p><a href="{% url 'accounts:logout' %}">Logout</a></p>
-{% else %}
-  <p>You are not logged in.</p>
-  <a href="{% url 'accounts:login' %}">Login</a>
+  <p class="mr-2">
+      {% if user.is_superuser %}
+        <a href="{% url 'todolist:train' %}" class="btn btn-outline-warning">Train</a>
+      {% endif %}
+      <a href="{% url 'todolist:prediction' %}" class="btn btn-outline-info">Get predictions</a>
+      <a class="btn btn-light ml-2" href="{% url 'accounts:logout' %}">Logout</a>
+  </p>
+  {% else %}
+    <p>You are not logged in.</p>
+    <a class="btn btn-light ml-2" href="{% url 'accounts:login' %}">Login</a>
 {% endif %}
 {% endblock %}

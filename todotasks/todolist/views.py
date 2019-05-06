@@ -6,6 +6,8 @@ import datetime
 from .models import TodoList, Task
 from .forms import TodolistForm, TodoForm
 
+from .predictive_model.log_regression_model import *
+
 
 def overview_view(request, todolist_id):
     todolist = request.user.todolists.get(id=todolist_id)
@@ -101,5 +103,13 @@ def done_task_view(request, todolist_id, todo_id):
     return redirect('todolist:overview', todolist_id=todolist_id)
 
 
+def prediction_view(request):
+    task_success = list(filter(lambda x: x == 1, predict(request.user)))
+    return render(request, 'todolist/prediction.html',
+                  {"count": len(task_success)})
 
+
+def train_view(request):
+    acc = train(request.user)[0]
+    return render(request, 'todolist/train.html', {"accuracy": acc})
 

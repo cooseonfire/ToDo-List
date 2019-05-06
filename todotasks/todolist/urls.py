@@ -12,4 +12,6 @@ urlpatterns = [
     path('delete/<int:todolist_id>/<int:todo_id>/', views.delete_task_view, name='delete_task'),
     path('done/<int:todolist_id>/<int:todo_id>/', views.done_task_view, name='done_task'),
     path('overview/<int:todolist_id>/', views.overview_view, name='overview'),
+    path('prediction/', views.prediction_view, name='prediction'),
+    path('train/', views.train_view, name='train'),
 ]

@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 
-{% load crispy_forms_tags %}
-
 {% block title %}{{ todolist.title }}{% endblock %}
 {% block css %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        #grad {
+            height: 100px;
+            background-color: #5194ff;
+            background-image: linear-gradient(-90deg, #ef5fbb, #5194ff);
+        }
+    </style>
 {% endblock %}
 {% block js %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -14,18 +19,19 @@
 
 
 {% block content %}
-    <div class="mb-2"></div>
-    <div class="row">
-        <div class="col mb-0 mr-2">
-            <h5 class="m-0 font-weight-bold text-primary">{{ todolist.title }}</h5>
+<body id="grad">
+    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <div class="row justify-content-between">
+            <div class="col mb-0 mr-4">
+                <h5 class="m-0 font-weight-bold text-primary">{{ todolist.title }}</h5>
+            </div>
+            <div class="row ml-4" align="end">
+                <a href="{% url 'todolist:edit_list' todolist.id %}" class="mr-2">Edit</a>
+                | <a href="{% url 'todolist:delete_list' todolist.id %}" class="ml-2">Delete</a>
+            </div>
         </div>
-        <div class="col mb-2" align="end">
-            <a href="{% url 'todolist:edit_list' todolist.id %}">Edit</a>
-            | <a href="{% url 'todolist:delete_list' todolist.id %}">Delete</a>
-        </div>
-    </div>
-    <div class="mb-3"></div>
-    <div class="row">
+    </nav>
+    <div class="container-fluid row">
         <div class="col">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -63,11 +69,20 @@
                                                 </div>
                                                 <div class="ml-3 mb-2">
                                                     <a href="#" data-toggle="popover" title="Description" data-content="{{todo.description}}">Description</a>
-                                                    {% if todo.deadline %}<p class="text-secondary">Deadline: {{todo.deadline|date:'d-m-Y'}}</p> {% endif %}
+                                                    {% if todo.deadline %}<p class="text-secondary">To {{todo.deadline|date:'N d Y'}}</p> {% endif %}
                                                 </div>
-                                                <p class="ml-1"><a href="{% url 'todolist:done_task' todolist.id todo.id %}">Done</a>
-                                                | <a href="{% url 'todolist:edit_task' todolist.id todo.id %}">Edit</a>
-                                                | <a href="{% url 'todolist:delete_task' todolist.id todo.id %}">Delete</a></p>
+                                                <p class="ml-3">
+                                                    <a href="{% url 'todolist:done_task' todolist.id todo.id %}" class="btn btn-outline-success btn-sm">
+                                                        <i class="fa fa-check">
+                                                        </i>
+                                                    </a>
+                                                    <a href="{% url 'todolist:edit_task' todolist.id todo.id %}" class="btn btn btn-outline-info btn-sm">
+                                                        <i class="fa fa-pencil"></i>
+                                                    </a>
+                                                    <a href="{% url 'todolist:delete_task' todolist.id todo.id %}" class="btn btn btn-outline-danger btn-sm">
+                                                        <i class="fa fa-times"></i>
+                                                    </a>
+                                                </p>
                                             </div>
                                         </div>
                                         <script>
@@ -94,7 +109,7 @@
                       </button>
                     </div>
                     <!-- Card Content - Collapse -->
-                    <div class="collapse" id="collapseOne" style="">
+                    <div class="collapse show" id="collapseOne" style="">
                       <div class="card-body">
                             <div class="card-columns">
                                 {% for todo in todolist.todos.all  %}
@@ -107,9 +122,11 @@
                                             </div>
                                             <div class="ml-3">
                                                 <a href="#" data-toggle="popover" title="Description" data-content="{{todo.description}}">Description</a>
-                                                <p class="text-secondary">At {{todo.finished_date|date:'d-m-Y'}}</p>
+                                                <p class="text-secondary">At {{todo.finished_date|date:'N d Y'}}</p>
                                             </div>
-                                            <p class="ml-1"><a href="{% url 'todolist:delete_task' todolist.id todo.id %}">Delete</a></p>
+                                            <p align="center"><a href="{% url 'todolist:delete_task' todolist.id todo.id %}" class="btn btn btn-outline-danger btn-sm">
+                                                <i class="fa fa-times"></i>
+                                            </a></p>
                                         </div>
                                     </div>
                                     <script>
@@ -128,4 +145,5 @@
             </div>
         </div>
     </div>
+</body>
 {% endblock %}

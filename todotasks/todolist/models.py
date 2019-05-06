@@ -19,7 +19,7 @@ class Task(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=2000, blank=True)
     priority = models.IntegerField(null=True)
-    created_date = models.DateTimeField(auto_now_add=True)
+    created_date = models.DateField(auto_now_add=True)
     deadline = models.DateField(null=True, blank=True)
     finished_date = models.DateField(null=True, blank=True)
     is_finished = models.BooleanField(default=False)
