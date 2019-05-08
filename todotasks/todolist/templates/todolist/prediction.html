@@ -1,9 +1,65 @@
 {% extends 'base.html' %}
 
 {% block title %}Prediction{% endblock %}
+{% block js %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock %}
 
 {% block content %}
     <div class="m-5">
         <h3 class="m-0 font-weight-bold text-primary">You'll probably end {{count}} tasks today.</h3>
     </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Tasks in a week</h6>
+        </div>
+        <div class="card-body">
+            <div class="chart-area">
+                <canvas id="weekChart" style="display: block; height: 400px; width: 367px;" width="458" height="500" class="chartjs-render-monitor"></canvas>
+            </div>
+        </div>
+    <script>
+    var ctx = document.getElementById("weekChart");
+    var myLineChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [ {% for entry in labels %}'{{ entry }}', {% endfor %} ],
+        datasets: [{
+          label: "Statistics",
+          lineTension: 0.3,
+          backgroundColor: "rgba(78, 115, 223, 0.05)",
+          borderColor: "rgba(78, 115, 223, 1)",
+          pointRadius: 3,
+          pointBackgroundColor: "rgba(78, 115, 223, 1)",
+          pointBorderColor: "rgba(78, 115, 223, 1)",
+          pointHoverRadius: 3,
+          pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+          pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+          pointHitRadius: 10,
+          pointBorderWidth: 2,
+          data: [ {% for entry in dataset %}{{ entry }}, {% endfor %} ],
+        }],
+      },
+    options: {
+        maintainAspectRatio: false,
+            layout
+    :
+        {
+            padding: {
+                left: 10,
+                    right
+            :
+                25,
+                    top
+            :
+                25,
+                    bottom
+            :
+                0
+            }
+        }
+    }
+    });
+</script>
 {% endblock %}

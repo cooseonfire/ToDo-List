@@ -105,11 +105,22 @@ def done_task_view(request, todolist_id, todo_id):
 
 def prediction_view(request):
     task_success = list(filter(lambda x: x == 1, predict(request.user)))
+    last_week = [datetime.date.today() - datetime.timedelta(days=i)
+                 for i in reversed(range(7))]
+    count_tasks = []
+    for i, day in enumerate(last_week):
+        count_tasks.append(0)
+        for todolist in request.user.todolists.all():
+            count_tasks[i] += todolist.todos.filter(finished_date=day).count()
+
+    format_week = [i.strftime('%d.%m') for i in last_week]
+
     return render(request, 'todolist/prediction.html',
-                  {"count": len(task_success)})
+                  {"count": len(task_success), "labels": format_week,
+                   "dataset": count_tasks})
 
 
 def train_view(request):
-    acc = train(request.user)[0]
+    acc = train(request.user)
     return render(request, 'todolist/train.html', {"accuracy": acc})
 
