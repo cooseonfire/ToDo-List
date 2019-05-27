@@ -1,7 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseNotFound
-from django.http import HttpResponse
-import datetime
+from django.contrib.auth.decorators import login_required
 
 from .models import TodoList, Task
 from .forms import TodolistForm, TodoForm
@@ -9,16 +7,14 @@ from .forms import TodolistForm, TodoForm
 from .predictive_model.log_regression_model import *
 
 
+@login_required(redirect_field_name='home')
 def overview_view(request, todolist_id):
     todolist = request.user.todolists.get(id=todolist_id)
-    if request.method == 'POST':
-        pass
-    else:
-        return render(request, 'todolist/list_overview.html', {"todolist": todolist})
+    return render(request, 'todolist/list_overview.html', {"todolist": todolist})
 
+
+@login_required(redirect_field_name='home')
 def new_list_view(request):
-    # if not request.user.is_authenticated():
-    #     redirect('404')
     if request.method == 'POST':
         user = request.user
         todolist = TodoList(title=request.POST['title'], creator=user)
@@ -29,6 +25,7 @@ def new_list_view(request):
         return render(request, 'todolist/new_list.html', {"form": TodolistForm()})
 
 
+@login_required(redirect_field_name='home')
 def edit_list_view(request, todolist_id):
     try:
         todolist = request.user.todolists.get(id=todolist_id)
@@ -42,15 +39,17 @@ def edit_list_view(request, todolist_id):
             return render(request, 'todolist/edit_list.html',
                           {"form": form})
     except TodoList.DoesNotExist:
-        return HttpResponseNotFound("<h2>List not found</h2>")
+        return redirect('404')
 
 
+@login_required(redirect_field_name='home')
 def delete_list_view(request, todolist_id):
     todolist = request.user.todolists.get(id=todolist_id)
     todolist.delete()
     return redirect('home')
 
 
+@login_required(redirect_field_name='home')
 def new_task_view(request, todolist_id):
     if request.method == 'POST':
         todo = Task(
@@ -67,6 +66,7 @@ def new_task_view(request, todolist_id):
         return render(request, 'todolist/new_task.html', {"form": TodoForm()})
 
 
+@login_required(redirect_field_name='home')
 def edit_task_view(request, todolist_id, todo_id):
     todolist = request.user.todolists.get(id=todolist_id)
     todo = todolist.todos.get(id=todo_id)
@@ -83,10 +83,11 @@ def edit_task_view(request, todolist_id, todo_id):
         form.fields["description"].initial = todo.description
         form.fields["priority"].initial = todo.priority
         form.fields["deadline"].initial = todo.deadline
-        return render(request, 'todolist/edit_list.html',
+        return render(request, 'todolist/edit_task.html',
                       {"form": form})
 
 
+@login_required(redirect_field_name='home')
 def delete_task_view(request, todolist_id, todo_id):
     todolist = request.user.todolists.get(id=todolist_id)
     todo = todolist.todos.get(id=todo_id)
@@ -94,6 +95,7 @@ def delete_task_view(request, todolist_id, todo_id):
     return redirect('todolist:overview', todolist_id=todolist_id)
 
 
+@login_required(redirect_field_name='home')
 def done_task_view(request, todolist_id, todo_id):
     todolist = request.user.todolists.get(id=todolist_id)
     todo = todolist.todos.get(id=todo_id)
@@ -103,8 +105,11 @@ def done_task_view(request, todolist_id, todo_id):
     return redirect('todolist:overview', todolist_id=todolist_id)
 
 
+@login_required(redirect_field_name='home')
 def prediction_view(request):
     task_success = list(filter(lambda x: x == 1, predict(request.user)))
+
+    # chart
     last_week = [datetime.date.today() - datetime.timedelta(days=i)
                  for i in reversed(range(7))]
     count_tasks = []
@@ -120,6 +125,7 @@ def prediction_view(request):
                    "dataset": count_tasks})
 
 
+@login_required(redirect_field_name='home')
 def train_view(request):
     acc = train(request.user)
     return render(request, 'todolist/train.html', {"accuracy": acc})

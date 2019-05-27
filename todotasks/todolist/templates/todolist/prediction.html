@@ -8,7 +8,7 @@
 
 {% block content %}
     <div class="m-5">
-        <h3 class="m-0 font-weight-bold text-primary">You'll probably end {{count}} tasks today.</h3>
+        <h3 class="m-0 font-weight-bold text-primary">You'll probably end {{count}} task(s) more today.</h3>
     </div>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -26,7 +26,7 @@
       data: {
         labels: [ {% for entry in labels %}'{{ entry }}', {% endfor %} ],
         datasets: [{
-          label: "Statistics",
+          label: "Solved tasks",
           lineTension: 0.3,
           backgroundColor: "rgba(78, 115, 223, 0.05)",
           borderColor: "rgba(78, 115, 223, 1)",

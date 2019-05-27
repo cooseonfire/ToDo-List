@@ -32,7 +32,9 @@
       <a class="btn btn-light ml-2" href="{% url 'accounts:logout' %}">Logout</a>
   </p>
   {% else %}
-    <p>You are not logged in.</p>
-    <a class="btn btn-light ml-2" href="{% url 'accounts:login' %}">Login</a>
+    <div class="container" align="center">
+        <p>You are not logged in.</p>
+        <a class="btn btn-light ml-2" href="{% url 'accounts:login' %}">Login</a>
+    </div>
 {% endif %}
 {% endblock %}
