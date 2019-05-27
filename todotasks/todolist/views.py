@@ -107,8 +107,11 @@ def done_task_view(request, todolist_id, todo_id):
 
 @login_required(redirect_field_name='home')
 def prediction_view(request):
-    task_success = list(filter(lambda x: x == 1, predict(request.user)))
-
+    try:
+        task_success = list(filter(lambda x: x == 1, predict(request.user)))
+    # for case when there's no enough tasks for training
+    except:
+        task_success = []
     # chart
     last_week = [datetime.date.today() - datetime.timedelta(days=i)
                  for i in reversed(range(7))]

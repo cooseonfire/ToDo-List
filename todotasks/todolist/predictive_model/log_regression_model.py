@@ -75,7 +75,7 @@ def predict(user):
     Makes prediction which tasks user will probably solve
      based on "behavior" patterns.
     :param user:
-    :return:
+    :return tasks user will probably solve:
     """
     data = []
     for todolist in user.todolists.all():

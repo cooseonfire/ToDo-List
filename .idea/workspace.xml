@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="be3c154e-e349-421d-b08a-0f6bc58222e5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todotasks/todolist/predictive_model/log_regression_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/todotasks/todolist/predictive_model/log_regression_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todotasks/todolist/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/todotasks/todolist/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todotasks/todolist/templates/todolist/list_overview.html" beforeDir="false" afterPath="$PROJECT_DIR$/todotasks/todolist/templates/todolist/list_overview.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todotasks/todolist/templates/todolist/prediction.html" beforeDir="false" afterPath="$PROJECT_DIR$/todotasks/todolist/templates/todolist/prediction.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todotasks/todolist/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todotasks/todolist/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todotasks/todolist/migrations/0002_auto_20190505_1428.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todotasks/todolist/migrations/0003_auto_20190505_1429.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todotasks/todolist/migrations/0004_auto_20190505_1430.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/todotasks/todotasks/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/todotasks/todotasks/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,27 +16,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/todotasks/todolist/templates/todolist/prediction.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-112">
-              <caret line="19" column="18" lean-forward="true" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-              <folding>
-                <element signature="n#style#0;n#canvas#0;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/todotasks/todolist/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" column="102" selection-start-line="6" selection-start-column="102" selection-end-line="6" selection-end-column="102" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/todotasks/todolist/predictive_model/log_regression_model.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -51,7 +28,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/todotasks/todolist/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
+            <state relative-caret-position="2576">
               <caret line="118" column="68" selection-start-line="118" selection-start-column="68" selection-end-line="118" selection-end-column="68" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
@@ -60,11 +37,35 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/todotasks/todotasks/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="43" column="14" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
+            <state relative-caret-position="384">
+              <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/todotasks/todotasks/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="362">
+              <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+              <folding>
+                <element signature="e#633#665#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/todotasks/accounts/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,7 +85,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/todotasks/todolist/templates/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
+            <state relative-caret-position="598">
               <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
             </state>
           </provider>
@@ -93,7 +94,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/todotasks/todolist/templates/todolist/list_overview.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1998">
+            <state relative-caret-position="575">
               <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
             </state>
           </provider>
@@ -112,7 +113,7 @@
         <entry file="file://$PROJECT_DIR$/todotasks/accounts/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="322">
-              <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+              <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
@@ -172,9 +173,9 @@
         <option value="$PROJECT_DIR$/todotasks/todolist/templates/home.html" />
         <option value="$PROJECT_DIR$/todotasks/todolist/templates/todolist/list_overview.html" />
         <option value="$PROJECT_DIR$/todotasks/todolist/predictive_model/log_regression_model.py" />
-        <option value="$PROJECT_DIR$/todotasks/todotasks/settings.py" />
         <option value="$PROJECT_DIR$/todotasks/todolist/views.py" />
         <option value="$PROJECT_DIR$/todotasks/todolist/templates/todolist/prediction.html" />
+        <option value="$PROJECT_DIR$/todotasks/todotasks/settings.py" />
       </list>
     </option>
   </component>
@@ -230,6 +231,13 @@
               <item name="ToDoDjango" type="462c0819:PsiDirectoryNode" />
               <item name="todotasks" type="462c0819:PsiDirectoryNode" />
               <item name="todolist" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ToDoDjango" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ToDoDjango" type="462c0819:PsiDirectoryNode" />
+              <item name="todotasks" type="462c0819:PsiDirectoryNode" />
+              <item name="todolist" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ToDoDjango" type="b2602c69:ProjectViewProjectNode" />
@@ -462,12 +470,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130227000" />
+    <option name="totallyTimeSpent" value="130440000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15969989" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16613077" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -532,7 +540,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ToDoDjango$log_regression_model.coverage" NAME="log_regression_model Coverage Results" MODIFIED="1557167144542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/todotasks/todolist/predictive_model" />
     <SUITE FILE_PATH="coverage/ToDoDjango$is_poly_poss.coverage" NAME="is_poly_poss Coverage Results" MODIFIED="1557167128497" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/run/media/cooseonfire/40749292749289F4/code for fun/CodeSignal" />
-    <SUITE FILE_PATH="coverage/ToDoDjango$quenn.coverage" NAME="quenn Coverage Results" MODIFIED="1557231622557" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../test/ya shad" />
+    <SUITE FILE_PATH="coverage/ToDoDjango$quenn.coverage" NAME="quenn Coverage Results" MODIFIED="1558974019034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../test/ya shad" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/todotasks/db.sqlite3">
@@ -684,8 +692,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/todotasks/todotasks/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="24" column="66" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="66" />
+        <state relative-caret-position="362">
+          <caret line="21" column="36" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
           <folding>
             <element signature="e#633#665#0" expanded="true" />
           </folding>
@@ -750,7 +758,7 @@
     <entry file="file://$PROJECT_DIR$/todotasks/accounts/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
-          <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
+          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>
@@ -759,28 +767,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/todotasks/todotasks/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="43" column="14" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="14" />
+        <state relative-caret-position="384">
+          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/todotasks/todolist/templates/todolist/list_overview.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1998">
+        <state relative-caret-position="575">
           <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/todotasks/todolist/templates/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
+        <state relative-caret-position="598">
           <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/todotasks/todolist/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
+        <state relative-caret-position="2576">
           <caret line="118" column="68" selection-start-line="118" selection-start-column="68" selection-end-line="118" selection-end-column="68" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />

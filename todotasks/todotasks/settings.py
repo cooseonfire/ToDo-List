@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '(4p+@av4p%(9@#5^fg@z@y9kk@wl#i@_=pqo7lex$vfm3t(zok'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'todolist',
     'accounts',
     'crispy_forms',
-    'chartjs',
 ]
 
 MIDDLEWARE = [
