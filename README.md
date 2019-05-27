@@ -1,6 +1,6 @@
 # ToDo List
 
-Trello-like website for mananging your projects.
+Trello-like website for managing your projects.
 
 Create your ToDo List and add new tasks to the dashboard.  
 You can specify for the task its:
