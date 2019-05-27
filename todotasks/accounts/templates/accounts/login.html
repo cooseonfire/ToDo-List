@@ -5,10 +5,10 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<h2>Login</h2>
+<h2 align="center">Login</h2>
 <form method="post">
   {% csrf_token %}
-  <div align="center" class="form-group col-md-6 mb-0">
+  <div align="center" class="form-group col-md-6 mb-0 container">
     {{ form|crispy }}
       <button type="submit" class="btn btn-primary">Login</button>
     <div class="m-3"></div>

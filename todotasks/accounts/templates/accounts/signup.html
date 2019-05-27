@@ -5,19 +5,21 @@
 {% block title %}Sign Up{% endblock %}
 
 {% block content %}
-  <h2>Sign up</h2>
   <form method="post">
-    {% csrf_token %}
-    {{ form.username|as_crispy_field}}
-    {{ form.email|as_crispy_field}}
-    <div class="form-row">
-      <div class="form-group col-md-6 mb-0">
-        {{ form.password|as_crispy_field }}
+    <div class="container" align="center">
+        <h2>Sign up</h2>
+      {% csrf_token %}
+      {{ form.username|as_crispy_field}}
+      {{ form.email|as_crispy_field}}
+      <div class="form-row">
+        <div class="form-group col-md-6 mb-0">
+          {{ form.password|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-6 mb-0">
+          {{ form.password_confirmed|as_crispy_field }}
+        </div>
       </div>
-      <div class="form-group col-md-6 mb-0">
-        {{ form.password_confirmed|as_crispy_field }}
-      </div>
+      <button type="submit" class="btn btn-primary">Sign in</button>
     </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
   </form>
 {% endblock %}

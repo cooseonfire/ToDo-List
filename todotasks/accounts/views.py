@@ -15,7 +15,7 @@ def login_view(request):
 
             if user and user.is_active:
                 login(request, user)
-                return render(request, 'home.html')
+                return redirect('home')
 
         else:
             return render(request, 'accounts/login.html', {'form': form})
