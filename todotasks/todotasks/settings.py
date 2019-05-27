@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'todolist',
     'accounts',
     'crispy_forms',
-    'chartjs',
 ]
 
 MIDDLEWARE = [
